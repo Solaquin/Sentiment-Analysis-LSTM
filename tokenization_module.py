@@ -5,7 +5,7 @@ import os
 
 class TokenizerModule:
 
-    def __init__(self, vocab_size=20000, sequence_length=200):
+    def __init__(self, vocab_size=20000, sequence_length=500):
         self.vocab_size = vocab_size
         self.sequence_length = sequence_length
         self.vectorizer = None
