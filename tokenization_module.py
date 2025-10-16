@@ -47,4 +47,13 @@ class TokenizerModule:
 
         self.build_vectorizer()
         self.vectorizer.set_vocabulary(vocab)
-    
+
+#Crear y guardar el vectorizador
+train = pd.read_csv("dataset_clean/train_clean.csv")
+
+
+train_texts = train['review_body'].astype(str)
+
+tok = TokenizerModule()
+tok.fit_vectorizer(train_texts)
+tok.save_vectorizer("vectorizer")
