@@ -1,0 +1,232 @@
+/* Variables globales */
+:root {
+    --primary-color: #232F3E;
+    --secondary-color: #ff8f00;
+    --success-color: #4caf50;
+    --danger-color: #f44336;
+    --background-color: #f5f5f5;
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --border-radius: 8px;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Header */
+header {
+    background-color: #232F3E;
+    color: white;
+    padding: 0.5rem 2rem;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 0;
+}
+
+.logo-text {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-text span {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo-img {
+    width: 24px;
+    height: 24px;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin-top: 0.2rem;
+}
+
+/* Main content */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Input container */
+.input-container {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    box-shadow: var(--box-shadow);
+}
+
+textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    resize: vertical;
+    font-family: inherit;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.primary-btn, .secondary-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.primary-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    flex: 2;
+}
+
+.secondary-btn {
+    background-color: var(--card-background);
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.primary-btn:hover, .secondary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow);
+}
+
+/* Results container */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0 2rem 0;
+}
+
+.stat-card {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.positive .stat-number {
+    color: var(--success-color);
+}
+
+.negative .stat-number {
+    color: var(--danger-color);
+}
+
+/* Individual reviews */
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.review-item {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.review-sentiment {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.sentiment-icon {
+    font-size: 1.5rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .button-group {
+        flex-direction: column;
+    }
+
+    .primary-btn, .secondary-btn {
+        width: 100%;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .input-container, .results-container {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 0.5rem;
+    }
+
+    .logo-icon {
+        font-size: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+}
