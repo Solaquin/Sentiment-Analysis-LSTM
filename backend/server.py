@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 import tensorflow as tf
 import numpy as np
 from utils.tokenization_module import TokenizerModule
@@ -23,7 +23,7 @@ encoder = tok.vectorizer
 
 @app.route("/")
 def home():
-    return app.send_static_file("index.html")
+    return send_from_directory(FRONTEND_DIR, "index.html")
 
 @app.route("/predict", methods=["POST"])
 def predict():
