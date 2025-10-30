@@ -2,16 +2,22 @@ from flask import Flask, request, jsonify
 import tensorflow as tf
 import numpy as np
 from utils.tokenization_module import TokenizerModule
+import os
 
-app = Flask(__name__, static_folder="../frontend", static_url_path="/")
+# Rutas relativas
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FRONTEND_DIR = os.path.join(BASE_DIR, "../frontend")
+MODEL_PATH = os.path.join(BASE_DIR, "Models/model_lstm_v1.keras")
+VECTORIZER_PATH = os.path.join(BASE_DIR, "vectorizer")
 
-# Cargar modelo al iniciar el servidor
-model_path = "backend/Models/model_lstm_v1.keras"
-model = tf.keras.models.load_model(model_path)
+app = Flask(__name__, static_folder=os.path.join(FRONTEND_DIR), static_url_path="/")
+
+#Cargar modelo
+model = tf.keras.models.load_model(MODEL_PATH)
 
 #Carga del tokenizador
 tok = TokenizerModule()
-tok.load_vectorizer("backend/vectorizer")
+tok.load_vectorizer(VECTORIZER_PATH)
 encoder = tok.vectorizer
 
 
@@ -27,9 +33,7 @@ def predict():
     if not reviews:
         return jsonify({"error": "No se enviaron reseñas"}), 400
 
-    preproccesed = [encoder([r]) for r in reviews]
-
-    X = np.vstack(preproccesed)
+    X = encoder(reviews)
     preds = model.predict(X)
 
     preds = np.array(preds).flatten()
@@ -39,4 +43,4 @@ def predict():
     return jsonify({"predictions": results})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
