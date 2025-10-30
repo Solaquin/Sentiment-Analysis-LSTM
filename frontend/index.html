@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SentiLab - Análisis de Sentimientos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo-text">
+                <img src="Icons/SentiLabIcon.svg" alt="SentiLab Logo" class="logo">
+                <span class="brand-name">SentiLab</span>
+            </div>
+            <p class="subtitle">Análisis de sentimientos para reseñas en español</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="input-container">
+            <h2>Ingresa tu reseña en español</h2>
+            <textarea id="review-text" placeholder="Escribe o pega o sube el texto de la reseña que quieres analizar"></textarea>
+            <div class="button-group">
+                <button id="analyze-btn" class="primary-btn">Analizar Sentimiento</button>
+                <button id="upload-btn" class="secondary-btn">
+                    <img src="Icons/Upload.svg" alt="Upload Icon" class="logo" style="width:18px;height:18px;">
+                    Subir .json
+                </button>
+                <!-- input de archivo oculto usado para lectura del contenido -->
+                <input type="file" id="file-input" accept=".txt,.json" style="display:none">
+            </div>
+        </div>
+
+        <div class="results-container">
+            <h2>Resumen General</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total de reseñas</h3>
+                    <span class="stat-number" id="total-reviews">0</span>
+                </div>
+                <div class="stat-card positive">
+                    <h3>Positivas</h3>
+                    <span class="stat-number" id="positive-reviews">0</span>
+                </div>
+                <div class="stat-card negative">
+                    <h3>Negativas</h3>
+                    <span class="stat-number" id="negative-reviews">0</span>
+                </div>
+            </div>
+
+            <div class="individual-reviews">
+                <h2>Análisis individual de Reseñas</h2>
+                <div class="reviews-list" id="reviews-container">
+                    <!-- Las reseñas se agregarán aquí dinámicamente -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Desarrollado por Simon Porras, Angel Tovas y  Juan Fique</p>
+    </footer>
+    
+</body>
+</html>
