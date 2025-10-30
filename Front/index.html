@@ -10,7 +10,7 @@
     <header class="header">
         <div class="logo-container">
             <div class="logo-text">
-                <img src="/Front/Icons/SentiLabIcon.svg" alt="SentiLab Logo" class="logo">
+                <img src="Icons/SentiLabIcon.svg" alt="SentiLab Logo" class="logo">
                 <span class="brand-name">SentiLab</span>
             </div>
             <p class="subtitle">Análisis de sentimientos para reseñas en español</p>
@@ -24,7 +24,7 @@
             <div class="button-group">
                 <button id="analyze-btn" class="primary-btn">Analizar Sentimiento</button>
                 <button id="upload-btn" class="secondary-btn">
-                    <img src="/Front/Icons/Upload.svg" alt="Upload Icon" class="logo" style="width:18px;height:18px;">
+                    <img src="Icons/Upload.svg" alt="Upload Icon" class="logo" style="width:18px;height:18px;">
                     Subir .json
                 </button>
                 <!-- input de archivo oculto usado para lectura del contenido -->
@@ -93,7 +93,7 @@
                     sentimentBlock.className = 'review-sentiment';
                     const icon = document.createElement('img');
                     icon.className = 'sentiment-icon';
-                    icon.src = sentiment === 'positive' ? '/Front/Icons/PositiveIcon.svg' : '/Front/Icons/NegativeIcon.svg';
+                    icon.src = sentiment === 'positive' ? 'Icons/PositiveIcon.svg' : 'Icons/NegativeIcon.svg';
                     icon.alt = sentiment === 'positive' ? 'Positive Icon' : 'Negative Icon';
                     const label = document.createElement('div');
                     label.className = 'sentiment-label';
