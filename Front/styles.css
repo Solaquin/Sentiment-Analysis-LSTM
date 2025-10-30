@@ -105,14 +105,14 @@ textarea {
 
 .primary-btn {
     background-color: var(--secondary-color);
-    color: white;
+    color: black;
     flex: 2;
 }
 
 .secondary-btn {
     background-color: var(--card-background);
-    border: 2px solid var(--secondary-color);
-    color: var(--secondary-color);
+    border: 2px solid black;
+    color: black;
     flex: 1;
     display: flex;
     align-items: center;
@@ -168,6 +168,79 @@ textarea {
     padding: 1.5rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+}
+
+/* Diferenciar reseñas positivas y negativas (maquetación) */
+.review-item.positive {
+    border: 1px solid rgba(76, 175, 80, 0.25);
+    background-color: #f6fffa;
+}
+.review-item.negative {
+    border: 1px solid rgba(244, 67, 54, 0.12);
+    background-color: #fff6f6;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+.review-index {
+    background-color: #232f3e;
+    color: white;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 700;
+}
+
+.review-sentiment {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(0,0,0,0.04);
+}
+.review-item.positive .review-sentiment{
+    border-color: rgb(0, 255, 8);
+}
+.review-item.negative .review-sentiment{
+    border-color: rgb(255, 17, 0);
+}
+
+.sentiment-icon{
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+.review-item.positive .sentiment-icon{
+    background-color: rgba(76,175,80,0.08);
+    color: var(--success-color);
+}
+.review-item.negative .sentiment-icon{
+    background-color: rgba(244,67,54,0.06);
+    color: var(--danger-color);
+}
+
+.sentiment-label .sentiment-sub{
+    font-size: 0.85rem;
+    color: #6b6b6b;
+    margin-top: 0.25rem;
+}
+
+.review-text{
+    padding: 0.75rem 0;
+    color: #222;
 }
 
 .review-sentiment {
