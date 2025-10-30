@@ -32,7 +32,8 @@ def predict():
     X = np.vstack(preproccesed)
     preds = model.predict(X)
 
-    results = [float(p) for p in np.squeeze(preds)]
+    preds = np.array(preds).flatten()
+    results = preds.tolist()
 
 
     return jsonify({"predictions": results})
