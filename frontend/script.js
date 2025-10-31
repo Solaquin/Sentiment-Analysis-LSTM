@@ -36,7 +36,7 @@ function renderReviews(reviews, data)
         icon.alt = sentiment === 'positive' ? 'Positive Icon' : 'Negative Icon';
         const label = document.createElement('div');
         label.className = 'sentiment-label';
-        label.innerHTML = `<strong>${sentiment === 'positive' ? 'Positivo' : 'Negativo'}</strong><div class="sentiment-sub">Esta reseña expresa una experiencia ${sentiment === 'positive' ? 'positiva' : 'negativa'}</div>`;
+        label.innerHTML = `<strong>${sentiment === 'positive' ? `Positivo (${percentage})` : `Negativo (${1 - percentage})`}</strong><div class="sentiment-sub">Esta reseña expresa una experiencia ${sentiment === 'positive' ? 'positiva' : 'negativa'}</div>`;
 
         sentimentBlock.appendChild(icon);
         sentimentBlock.appendChild(label);
